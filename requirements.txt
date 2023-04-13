@@ -1,2 +1,5 @@
 pymongo
 pandas
+numpy
+wordcloud
+pillow 
