@@ -1,48 +1,16 @@
-# **NTUST - BDA**
+# **NTUST-ML**
 
-## **Flow Chart**
-
-### CSV to MongoDB
-```mermaid
-graph LR
-A[Read local CSV file] --> B[Convert CSV file to MongoDB format]
-B --> C[Save to MongoDB database]
-```
-
-### Preprocssing & Analysis
-
-```mermaid
-graph TB
-MongoDB[(Amazon<br>Reviews)] --> Preprocessing[Preprocessing<br><div align='left'>1. Add new field Timestamp to Datetime<br>2. Add new field reviewers sentiment</div>]
-Preprocessing -- update --> MongoDB
-
-MongoDB --> Visualization[Visualization<div align='left'>1. Wordcloud<br>&nbsp;&nbsp;&nbsp;&nbsp;- All reviews<br>&nbsp;&nbsp;&nbsp;&nbsp;- Postive/Negeative reviews</div>]
-
-```
-
-### Helpfulness predict
-```mermaid
-graph TB
-MongoDB[(Amazon<br>Reviews)] --> Filter[Filter<br>]
-```
-
-
-
-
-
-
-✅ TODO
-- [ ] Wordcloud
-   - [ ] Different sentiment
-
+## 專案架構
 ```yaml
-.
-├── 01_load_data_into_mongodb.py
-├── 02_query_mongo_create_fields.py
-├── Dockerfile # for docker
-├── Makefile
-├── README.md
-├── Reviews_withURL.csv
-├── compose-dev.yaml # for docker
-└── requirements.txt # for python
+│  cloud.jpg # 繪製文字雲的底圖
+│  ML_refactor.ipynb # 目前進度都在這裡
+│  README.md 
+│  requirements.txt # 需要下載的套件
+│  Reviews_withURL.csv # 這邊要自己放入 csv 檔案，github 上沒有放
+│  stopwords.txt # 一些客製化的停斷詞，但是沒有用到
+│
+└─core
+    │  conn.py # 連接 MongoDB
+    │  my_wordcloud.py # 可以快速建立文字雲的模組
+    └─ __init__.py
 ```
